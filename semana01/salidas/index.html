@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>JS Básico: document, alert/confirm, prompt y console</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>JavaScript Básico – Demo Interactiva</h1>
+    <p>Ejemplos de <span class="pill">document</span>, <span class="pill">alert / confirm</span>, <span class="pill">prompt</span> y <span class="pill">console</span>.</p>
+  </header>
+
+  <div class="container">
+    <section class="card">
+      <h2>Ejemplos</h2>
+      <div class="grid">
+
+        <!-- document -->
+        <div class="example">
+          <h3>1) document.getElementById()</h3>
+          <p>Accede y modifica un elemento del DOM.</p>
+          <div class="demo-box">
+            <div id="target" class="tag">Soy #target</div>
+            <div class="inline">
+              <button id="btnChange">Cambiar texto</button>
+              <button id="btnReset">Restaurar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="example">
+          <h3>2) document.write() / writeln()</h3>
+          <p>Demostración en una ventana nueva para no reemplazar esta página.</p>
+          <button id="btnWrite">Abrir ventana y escribir</button>
+          <div class="muted" style="font-size:12px">
+            Nota: <code>document.write()</code> tras la carga de la página reemplaza el documento.
+          </div>
+        </div>
+
+        <!-- alert / confirm -->
+        <div class="example">
+          <h3>3) alert()</h3>
+          <p>Muestra un cuadro de diálogo informativo.</p>
+          <button id="btnAlert">Mostrar alert</button>
+        </div>
+
+        <div class="example">
+          <h3>4) confirm()</h3>
+          <p>Pregunta al usuario (OK/Cancelar) y retorna <code>true/false</code>.</p>
+          <button id="btnConfirm">Mostrar confirm</button>
+        </div>
+
+        <!-- prompt -->
+        <div class="example">
+          <h3>5) prompt()</h3>
+          <p>Pide un valor al usuario; retorna texto o <code>null</code>.</p>
+          <div class="inline">
+            <button id="btnPrompt">Pedir nombre</button>
+            <span id="promptResult" class="muted"></span>
+          </div>
+        </div>
+
+        <!-- console -->
+        <div class="example">
+          <h3>6) console.*</h3>
+          <p>Registra mensajes en la consola del navegador.</p>
+          <div class="inline">
+            <button id="btnLog">console.log</button>
+            <button id="btnWarn">console.warn</button>
+            <button id="btnError">console.error</button>
+            <button id="btnInfo">console.info</button>
+          </div>
+          <div class="muted" style="font-size:12px">
+            Abre las herramientas del navegador (F12) y ve la pestaña <b>Console</b>.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <aside class="card">
+      <h2>Logs de la demo</h2>
+      <div id="log" class="log"></div>
+      <div class="inline" style="margin-top:10px">
+        <button id="btnClear">Limpiar</button>
+        <span class="muted">Estos logs son de UI (para estudiantes). Revisa también la consola.</span>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    Demostración didáctica de <code>document</code>, diálogos nativos (<code>alert</code>, <code>confirm</code>, <code>prompt</code>) y <code>console</code>.
+  </footer>
+
+<script src="script_no_write.js"></script>
+</body>
+</html>

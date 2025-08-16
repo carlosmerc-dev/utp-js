@@ -1,0 +1,27 @@
+:root { --bg:#0f172a; --card:#111827; --muted:#94a3b8; --accent:#22d3ee; --ok:#10b981; --warn:#f59e0b; --err:#ef4444; }
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;margin:0;background:linear-gradient(180deg,#0b1020,#0e1328);color:#e5e7eb}
+header{padding:24px 16px;text-align:center;border-bottom:1px solid rgba(255,255,255,.08)}
+header h1{margin:0;font-size:28px;letter-spacing:.3px}
+header p{margin:6px 0 0;color:var(--muted)}
+.container{display:grid;grid-template-columns: 1.1fr .9fr;gap:18px;max-width:1100px;margin:20px auto;padding:0 16px}
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px 16px 14px}
+.card h2{margin:4px 0 10px;font-size:18px;color:#e2e8f0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.example{background:rgba(255,255,255,.05);border:1px dashed rgba(255,255,255,.12);border-radius:12px;padding:12px}
+.example h3{margin:0 0 6px;font-size:15px;color:#e5e7eb}
+.example p{margin:6px 0 10px;color:var(--muted);font-size:14px}
+.demo-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px}
+.tag{display:inline-block;padding:6px 10px;border-radius:8px;background:rgba(34,211,238,.15);border:1px solid rgba(34,211,238,.35);color:#cffafe}
+button, input, select, textarea{font:inherit}
+button{background:#1f2937;color:#e5e7eb;border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);box-shadow:0 0 0 2px rgba(34,211,238,.15) inset}
+.pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;background:rgba(34,211,238,.15);border:1px solid rgba(34,211,238,.35);color:#cffafe}
+.log{height:520px;overflow:auto;background:#0b0f1b;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;font-size:12.5px}
+.log .item{padding:6px 8px;border-bottom:1px dashed rgba(255,255,255,.07)}
+.log .item:last-child{border-bottom:none}
+.ok{color:var(--ok)} .warn{color:var(--warn)} .err{color:var(--err)}
+code{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:6px;border:1px solid rgba(255,255,255,.12)}
+.inline{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.muted{color:var(--muted)}
+footer{max-width:1100px;margin:10px auto 30px;color:var(--muted);font-size:13px;text-align:center}

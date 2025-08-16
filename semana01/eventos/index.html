@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Demo de Eventos en JavaScript</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Eventos en JavaScript – Demo Interactiva</h1>
+    <p>Escucha y reacciona a acciones del usuario o del navegador. <span class="pill">Usando addEventListener()</span></p>
+  </header>
+
+  <div class="container">
+    <!-- Panel de ejemplos -->
+    <section class="card">
+      <h2>Ejemplos</h2>
+      <div class="grid">
+        <div class="example" id="ex-click">
+          <h3>1) onclick</h3>
+          <p>Detecta un clic y cambia el color del botón.</p>
+          <button id="btnClick">Haz clic</button>
+        </div>
+
+        <div class="example" id="ex-change">
+          <h3>2) onchange</h3>
+          <p>Registra cuando cambias la opción seleccionada.</p>
+          <select id="selColor">
+            <option value="">— Elige un color —</option>
+            <option value="rojo">Rojo</option>
+            <option value="azul">Azul</option>
+            <option value="verde">Verde</option>
+          </select>
+        </div>
+
+        <div class="example" id="ex-focus">
+          <h3>3) onfocus / onblur</h3>
+          <p>Marca el input al enfocarlo y limpia al salir.</p>
+          <input id="txtFocus" type="text" placeholder="Enfócame y escribe…"/>
+        </div>
+
+        <div class="example" id="ex-keys">
+          <h3>4) onkeydown / onkeyup</h3>
+          <p>Muestra la tecla presionada/soltada.</p>
+          <input id="txtTeclas" type="text" placeholder="Escribe algo aquí"/>
+          <div class="muted" style="font-size:12px">Tip: prueba con letras y números</div>
+        </div>
+
+        <div class="example" id="ex-mouse">
+          <h3>5) onmouseover / onmouseout</h3>
+          <p>Pasa el mouse por el recuadro.</p>
+          <div id="boxHover" style="height:80px;border-radius:10px;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;">Hover aquí</div>
+        </div>
+
+        <div class="example" id="ex-select">
+          <h3>6) onselect</h3>
+          <p>Selecciona parte del texto para disparar el evento.</p>
+          <input id="txtSelect" type="text" value="Selecciona este texto con el mouse"/>
+        </div>
+
+        <div class="example" id="ex-submit">
+          <h3>7) onsubmit</h3>
+          <p>Previene el envío y valida contenido.</p>
+          <form id="frmDemo">
+            <div class="inline">
+              <input id="nombre" type="text" placeholder="Tu nombre"/>
+              <button type="submit">Enviar</button>
+            </div>
+            <div class="muted" style="font-size:12px">Se cancela el envío real con <code>event.preventDefault()</code></div>
+          </form>
+        </div>
+
+        <div class="example" id="ex-load">
+          <h3>8) onload</h3>
+          <p>Se registra cuando el documento está listo.</p>
+          <div class="muted">Revisa el panel de logs para ver el evento al cargar.</div>
+        </div>
+
+        <div class="example" id="ex-inline">
+          <h3>9) Atributos HTML (educativo)</h3>
+          <p>Ejemplo con <code>onclick="..."</code> (no recomendado en producción).</p>
+          <button onclick="alert('Atributo inline: ¡clic!')">Inline onclick</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Panel de logs -->
+    <aside class="card">
+      <h2>Logs de eventos</h2>
+      <div class="log" id="log"></div>
+      <div class="inline" style="margin-top:10px">
+        <button id="btnClear">Limpiar</button>
+        <span class="muted">Los eventos también se registran en <code>console</code>.</span>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    Demostración didáctica para explicar eventos comunes del DOM: click, change, focus/blur, teclado, mouseover/out, select, submit y load.
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
