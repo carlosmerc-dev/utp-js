@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>03. Operadores de desplazamiento de bits</title>
+<link rel="stylesheet" href="ops.css"></head>
+<body>
+<header>
+  <h1>03. Operadores de desplazamiento de bits</h1>
+  <p>Visual y explicado paso a paso. <span class="pill">Metodología: Concepto → Explora → Actividades → Errores</span></p>
+  <p class="small"><a href="index.html">Volver al índice</a></p>
+</header>
+<div class="container">
+  <section class="card">
+    <div class="grid">
+      <div class="block"><h3>Concepto clave</h3><p>Operadores de bits (32 bits con signo): <code>&lt;&lt;</code>, <code>&gt;&gt;</code>, <code>&gt;&gt;&gt;</code>.</p></div>
+      <div class="block"><h3>Explora (interactivo)</h3>
+<div class="inline">
+  <input id="bitX" type="number" value="5">
+  <select id="bitOp"><option>&lt;&lt;</option><option>&gt;&gt;</option><option>&gt;&gt;&gt;</option></select>
+  <input id="bitN" type="number" value="1" min="0" max="31">
+  <button id="btnBit">Aplicar</button>
+</div>
+<p id="bitOut" class="small"></p>
+<div class="small">Representación (32 bits): <span id="binIn" class="bin"></span> → <span id="binOut" class="bin"></span></div></div>
+      <div class="block"><h3>Actividades guiadas</h3><ol><li>Usa -5 y compara &gt;&gt; vs &gt;&gt;&gt;.</li><li>Desplaza 1 varias veces para ver potencias de 2.</li></ol></div>
+      <div class="block"><h3>Errores comunes y tips</h3><ul><li>Limitado a 32 bits.</li><li>&gt;&gt; mantiene el signo; &gt;&gt;&gt; rellena con ceros.</li></ul></div>
+    </div>
+  </section>
+  <aside class="card">
+    <h2>Logs</h2>
+    <div id="log" class="log"></div>
+    <div class="inline" style="margin-top:10px">
+      <button id="btnClear">Limpiar</button>
+      <span class="small">Mira también la pestaña <b>Console</b> del navegador.</span>
+    </div>
+  </aside>
+</div>
+<footer>UTP · Ingeniería de Sistemas · JavaScript Avanzado</footer>
+<script>
+const $log = document.getElementById('log');
+function log(msg,cls=''){const d=document.createElement('div');d.className='item '+cls;d.textContent='['+new Date().toLocaleTimeString()+'] '+msg;$log.appendChild(d);$log.scrollTop=$log.scrollHeight;console.log(msg);}
+document.getElementById('btnClear').addEventListener('click',()=>{$log.innerHTML='';});
+</script>
+<script src="p3_bits.js"></script>
+</body></html>

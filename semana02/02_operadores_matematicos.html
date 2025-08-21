@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>02. Operadores Matemáticos</title>
+<link rel="stylesheet" href="ops.css"></head>
+<body>
+<header>
+  <h1>02. Operadores Matemáticos</h1>
+  <p>Calculadora y diferencias pre/post incremento. <span class="pill">Metodología: Concepto → Explora → Actividades → Errores</span></p>
+  <p class="small"><a href="index.html">Volver al índice</a></p>
+</header>
+<div class="container">
+  <section class="card">
+    <div class="grid">
+      <div class="block"><h3>Concepto clave</h3><p>Operadores aritméticos: <code>+, -, *, /, %, **</code>. Prefijo vs postfijo cambian el valor devuelto.</p></div>
+      <div class="block"><h3>Explora (interactivo)</h3>
+<div class="block">
+  <h3>Calculadora de operadores</h3>
+  <div class="inline">
+    <input id="opA" type="number" placeholder="a">
+    <select id="opSelect">
+      <option value="+">+</option><option value="-">-</option>
+      <option value="*">*</option><option value="/">/</option>
+      <option value="%">%</option><option value="**">**</option>
+    </select>
+    <input id="opB" type="number" placeholder="b">
+    <button id="btnCalc">Calcular</button>
+  </div>
+  <p id="opOut" class="small"></p>
+</div>
+<div class="block">
+  <h3>Incremento / Decremento</h3>
+  <div class="inline">
+    <input id="idVal" type="number" value="0">
+    <button id="postInc">x++</button><button id="preInc">++x</button>
+    <button id="postDec">x--</button><button id="preDec">--x</button>
+  </div>
+  <p id="idOut" class="small"></p>
+</div></div>
+      <div class="block"><h3>Actividades guiadas</h3><ol><li>Divide entre 0 y observa el resultado.</li><li>Prueba módulo con negativos.</li><li>Compara prefijo vs postfijo.</li></ol></div>
+      <div class="block"><h3>Errores comunes y tips</h3><ul><li><code>%</code> es resto, no porcentaje.</li><li>Cuidado con <code>b=0</code>.</li></ul></div>
+    </div>
+  </section>
+  <aside class="card">
+    <h2>Logs</h2>
+    <div id="log" class="log"></div>
+    <div class="inline" style="margin-top:10px">
+      <button id="btnClear">Limpiar</button>
+      <span class="small">Mira también la pestaña <b>Console</b> del navegador.</span>
+    </div>
+  </aside>
+</div>
+<footer>UTP · Ingeniería de Sistemas · JavaScript Avanzado</footer>
+<script>
+const $log = document.getElementById('log');
+function log(msg,cls=''){const d=document.createElement('div');d.className='item '+cls;d.textContent='['+new Date().toLocaleTimeString()+'] '+msg;$log.appendChild(d);$log.scrollTop=$log.scrollHeight;console.log(msg);}
+document.getElementById('btnClear').addEventListener('click',()=>{$log.innerHTML='';});
+</script>
+<script src="p2_operadores.js"></script>
+</body></html>

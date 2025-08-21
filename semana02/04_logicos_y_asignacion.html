@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>04. Operadores lógicos y con asignación</title>
+<link rel="stylesheet" href="ops.css"></head>
+<body>
+<header>
+  <h1>04. Operadores lógicos y con asignación</h1>
+  <p>Truthiness y acumulación paso a paso. <span class="pill">Metodología: Concepto → Explora → Actividades → Errores</span></p>
+  <p class="small"><a href="index.html">Volver al índice</a></p>
+</header>
+<div class="container">
+  <section class="card">
+    <div class="grid">
+      <div class="block"><h3>Concepto clave</h3><p>Lógicos: <code>&&</code>, <code>||</code>, <code>!</code> con cortocircuito. Asignación compuesta: <code>+=, -=, *=, /=, %=, **=</code>.</p></div>
+      <div class="block"><h3>Explora (interactivo)</h3>
+<div class="block">
+  <h3>Verdad en JS (truthy/falsy)</h3>
+  <div class="inline">
+    <select id="vA">
+      <option value="true">true</option><option value="false">false</option>
+      <option value="0">0</option><option value="''">''</option>
+      <option value="[]">[]</option><option value="{}">{{}}</option>
+      <option value="null">null</option><option value="undefined">undefined</option>
+    </select>
+    <select id="vB">
+      <option value="'UTP'">'UTP'</option><option value="1">1</option>
+      <option value="NaN">NaN</option><option value="true">true</option><option value="false">false</option>
+    </select>
+    <button id="btnLogicEval">Evaluar && y ||</button>
+  </div>
+  <p id="lgOut" class="small"></p>
+</div>
+<div class="block">
+  <h3>Asignación compuesta</h3>
+  <div class="inline">
+    <input id="asBase" type="number" value="10">
+    <select id="asOp">
+      <option>+=</option><option>-=</option><option>*=</option>
+      <option>/=</option><option>%=</option><option>**=</option>
+    </select>
+    <input id="asVal" type="number" value="3">
+    <button id="btnAs">Aplicar</button>
+    <button id="btnReset">Reset</button>
+  </div>
+  <p id="asOut" class="small"></p>
+</div></div>
+      <div class="block"><h3>Actividades guiadas</h3><ol><li>Prueba A='' y B='UTP' con OR.</li><li>NaN && 'UTP'.</li><li>Acumula usando += y luego *=.</li></ol></div>
+      <div class="block"><h3>Errores comunes y tips</h3><ul><li>Cortocircuito: A&&B devuelve A si es falsy; A||B devuelve A si es truthy.</li><li>No confundas == con ===.</li></ul></div>
+    </div>
+  </section>
+  <aside class="card">
+    <h2>Logs</h2>
+    <div id="log" class="log"></div>
+    <div class="inline" style="margin-top:10px">
+      <button id="btnClear">Limpiar</button>
+      <span class="small">Mira también la pestaña <b>Console</b> del navegador.</span>
+    </div>
+  </aside>
+</div>
+<footer>UTP · Ingeniería de Sistemas · JavaScript Avanzado</footer>
+<script>
+const $log = document.getElementById('log');
+function log(msg,cls=''){const d=document.createElement('div');d.className='item '+cls;d.textContent='['+new Date().toLocaleTimeString()+'] '+msg;$log.appendChild(d);$log.scrollTop=$log.scrollHeight;console.log(msg);}
+document.getElementById('btnClear').addEventListener('click',()=>{$log.innerHTML='';});
+</script>
+<script src="p4_logicos_asignacion.js"></script>
+</body></html>

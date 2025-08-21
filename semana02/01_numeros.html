@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>01. Números en JavaScript</title>
+<link rel="stylesheet" href="ops.css"></head>
+<body>
+<header>
+  <h1>01. Números en JavaScript</h1>
+  <p>Number vs BigInt, precisión y casos especiales. <span class="pill">Metodología: Concepto → Explora → Actividades → Errores</span></p>
+  <p class="small"><a href="index.html">Volver al índice</a></p>
+</header>
+<div class="container">
+  <section class="card">
+    <div class="grid">
+      <div class="block"><h3>Concepto clave</h3>
+<p>En JavaScript hay un único tipo numérico <code>Number</code> y también <code>BigInt</code> para enteros grandes.</p>
+<div class="table">
+  <div><b>Number</b><br><span class="small">Decimales y enteros, rango seguro ±(2^53−1)</span></div>
+  <div><b>BigInt</b><br><span class="small">Enteros enormes, se escriben con <code>n</code></span></div>
+</div></div>
+      <div class="block"><h3>Explora (interactivo)</h3>
+<div class="inline">
+  <input id="numRaw" placeholder="Ej: 12.345, 1e-3, 0.1+0.2">
+  <button id="btnParse">Analizar</button>
+</div>
+<p id="numInfo" class="small"></p>
+<div class="inline" style="margin-top:8px">
+  <input id="bigRaw" type="text" value="9007199254740993">
+  <button id="btnBig">Comparar Number vs BigInt</button>
+</div>
+<p id="bigInfo" class="small"></p></div>
+      <div class="block"><h3>Actividades guiadas</h3><ol><li>Prueba <code>0.1 + 0.2</code> y comenta sobre la precisión.</li><li>Ensaya <code>Infinity</code>, <code>-Infinity</code> y <code>NaN</code>.</li></ol></div>
+      <div class="block"><h3>Errores comunes y tips</h3><ul><li>No compares decimales de forma exacta; usa margen (<code>Number.EPSILON</code>).</li><li><code>NaN</code> no es igual ni a sí mismo.</li></ul></div>
+    </div>
+  </section>
+  <aside class="card">
+    <h2>Logs</h2>
+    <div id="log" class="log"></div>
+    <div class="inline" style="margin-top:10px">
+      <button id="btnClear">Limpiar</button>
+      <span class="small">Mira también la pestaña <b>Console</b> del navegador.</span>
+    </div>
+  </aside>
+</div>
+<footer>UTP · Ingeniería de Sistemas · JavaScript Avanzado</footer>
+<script>
+const $log = document.getElementById('log');
+function log(msg,cls=''){const d=document.createElement('div');d.className='item '+cls;d.textContent='['+new Date().toLocaleTimeString()+'] '+msg;$log.appendChild(d);$log.scrollTop=$log.scrollHeight;console.log(msg);}
+document.getElementById('btnClear').addEventListener('click',()=>{$log.innerHTML='';});
+</script>
+<script src="p1_numeros.js"></script>
+</body></html>
