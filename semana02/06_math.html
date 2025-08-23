@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>06. Funciones, métodos y propiedades Matemáticas</title>
+<link rel="stylesheet" href="ops.css"></head>
+<body>
+<header>
+  <h1>06. Funciones, métodos y propiedades Matemáticas</h1>
+  <p>Redondeo, aleatorios, trigonometría y utilidades. <span class="pill">Metodología: Concepto → Explora → Actividades → Errores</span></p>
+  <p class="small"><a href="index.html">Volver al índice</a></p>
+</header>
+<div class="container">
+  <section class="card">
+    <div class="grid">
+      <div class="block"><h3>Concepto clave</h3><p>Math: constantes (<code>PI, E</code>) y funciones: <code>floor, ceil, round, random, sqrt, pow, min, max</code>, trigonometría.</p></div>
+      <div class="block"><h3>Explora (interactivo)</h3>
+<div class="block">
+  <h3>Redondeo</h3>
+  <div class="inline"><input id="mx" type="number" step="0.01" value="3.67"><button id="btnRound">floor / ceil / round</button></div>
+  <p id="mOut1" class="small"></p>
+</div>
+<div class="block">
+  <h3>Aleatorios</h3>
+  <div class="inline"><input id="rMin" type="number" value="1"><input id="rMax" type="number" value="10"><button id="btnRand">Entero en rango</button></div>
+  <p id="mOut2" class="small"></p>
+</div>
+<div class="block">
+  <h3>Trigonometría (grados)</h3>
+  <div class="inline"><input id="deg" type="number" value="45"><button id="btnTrig">sin / cos / tan</button></div>
+  <p id="mOut3" class="small"></p>
+</div>
+<div class="block">
+  <h3>Otros métodos útiles</h3>
+  <div class="inline"><input id="mList" value="3, 5, 2, 10, -4"><button id="btnMinMax">min / max / sqrt(sum^2)</button></div>
+  <p id="mOut4" class="small"></p>
+</div></div>
+      <div class="block"><h3>Actividades guiadas</h3><ol><li>Convierte el aleatorio en un dado de 6.</li><li>¿Qué ocurre con tan(90°)?</li></ol></div>
+      <div class="block"><h3>Errores comunes y tips</h3><ul><li>random() es [0,1), nunca 1.</li><li>Trigonometría en radianes.</li></ul></div>
+    </div>
+  </section>
+  <aside class="card">
+    <h2>Logs</h2>
+    <div id="log" class="log"></div>
+    <div class="inline" style="margin-top:10px">
+      <button id="btnClear">Limpiar</button>
+      <span class="small">Mira también la pestaña <b>Console</b> del navegador.</span>
+    </div>
+  </aside>
+</div>
+<footer>UTP · Ingeniería de Sistemas · JavaScript Avanzado</footer>
+<script>
+const $log = document.getElementById('log');
+function log(msg,cls=''){const d=document.createElement('div');d.className='item '+cls;d.textContent='['+new Date().toLocaleTimeString()+'] '+msg;$log.appendChild(d);$log.scrollTop=$log.scrollHeight;console.log(msg);}
+document.getElementById('btnClear').addEventListener('click',()=>{$log.innerHTML='';});
+</script>
+<script src="p6_math.js"></script>
+</body></html>

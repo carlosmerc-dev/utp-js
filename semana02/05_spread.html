@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>05. Sintaxis Spread</title>
+<link rel="stylesheet" href="ops.css"></head>
+<body>
+<header>
+  <h1>05. Sintaxis Spread</h1>
+  <p>Clonar/combinar arrays y fusionar objetos sin mutar. <span class="pill">Metodología: Concepto → Explora → Actividades → Errores</span></p>
+  <p class="small"><a href="index.html">Volver al índice</a></p>
+</header>
+<div class="container">
+  <section class="card">
+    <div class="grid">
+      <div class="block"><h3>Concepto clave</h3><p>Spread (<code>...</code>) desempaqueta arrays/objetos: clona, combina y agrega sin mutar (superficial).</p></div>
+      <div class="block"><h3>Explora (interactivo)</h3>
+<div class="block">
+  <h3>Arrays</h3>
+  <div class="inline">
+    <input id="arrA" value="1,2">
+    <input id="arrB" value="3,4">
+    <button id="btnArrCombine">Combinar</button>
+    <button id="btnArrClone">Clonar A</button>
+  </div>
+  <p id="arrOut" class="small"></p>
+</div>
+<div class="block">
+  <h3>Objetos</h3>
+  <div class="inline">
+    <textarea id="objA">{ "curso":"JS", "nivel":"avanzado" }</textarea>
+    <textarea id="objB">{ "nivel":"intermedio", "creditos": 4 }</textarea>
+  </div>
+  <div class="inline" style="margin-top:8px">
+    <button id="btnObjMerge">Fusionar</button>
+    <button id="btnObjClone">Clonar A</button>
+  </div>
+  <p id="objOut" class="small"></p>
+</div></div>
+      <div class="block"><h3>Actividades guiadas</h3><ol><li>Combina y modifica el clon.</li><li>Observa sobrescritura en objetos.</li><li>Discute por qué el clonado es superficial.</li></ol></div>
+      <div class="block"><h3>Errores comunes y tips</h3><ul><li>Spread no clona profundo.</li><li>El orden importa: {...A, ...B} → B sobrescribe A.</li></ul></div>
+    </div>
+  </section>
+  <aside class="card">
+    <h2>Logs</h2>
+    <div id="log" class="log"></div>
+    <div class="inline" style="margin-top:10px">
+      <button id="btnClear">Limpiar</button>
+      <span class="small">Mira también la pestaña <b>Console</b> del navegador.</span>
+    </div>
+  </aside>
+</div>
+<footer>UTP · Ingeniería de Sistemas · JavaScript Avanzado</footer>
+<script>
+const $log = document.getElementById('log');
+function log(msg,cls=''){const d=document.createElement('div');d.className='item '+cls;d.textContent='['+new Date().toLocaleTimeString()+'] '+msg;$log.appendChild(d);$log.scrollTop=$log.scrollHeight;console.log(msg);}
+document.getElementById('btnClear').addEventListener('click',()=>{$log.innerHTML='';});
+</script>
+<script src="p5_spread.js"></script>
+</body></html>
