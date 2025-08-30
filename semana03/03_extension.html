@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>03. Extensión de cadenas</title>
+<link rel="stylesheet" href="ops.css"/></head>
+<body>
+<header>
+  <h1>03. Extensión de cadenas</h1>
+  <p>length · toUpper/Lower · trim/Start/End · replace <span class="pill">Concepto → Explora → Actividades → Errores</span></p>
+  <p class="small"><a href="index.html">← Índice Semana 3</a></p>
+</header>
+
+<div class="container">
+  <section class="card">
+    <div class="grid">
+      <div class="block">
+        <h3>Concepto clave</h3>
+        <ul class="small">
+          <li><b>length</b> obtiene longitud.</li>
+          <li><b>toUpperCase / toLowerCase</b> normalizan mayúsculas/minúsculas.</li>
+          <li><b>trim/Start/End</b> quitan espacios sobrantes.</li>
+          <li><b>replace</b> sustituye patrones (acepta RegExp).</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Explora (interactivo)</h3>
+        <div class="inline">
+          <input id="txt" type="text" style="min-width:360px" value="  Universidad Tecnológica del Perú  ">
+          <button id="btnExt">Aplicar</button>
+        </div>
+        <p class="small" id="out"></p>
+      </div>
+
+      <div class="block">
+        <h3>Actividades guiadas</h3>
+        <ol>
+          <li>Convierte un nombre a formato “Nombre Apellido”.</li>
+          <li>Cambia “Universidad” por “UTP” (global y sin sensibilidad).</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <h3>Errores comunes y tips</h3>
+        <ul class="small">
+          <li>Comparar strings sin normalizar puede fallar.</li>
+          <li>Usa <code>/patron/gi</code> para reemplazos globales sin distinguir mayúsculas.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <aside class="card">
+    <h2>Logs</h2>
+    <div id="log" class="log"></div>
+    <div class="inline" style="margin-top:10px">
+      <button id="btnClear">Limpiar</button>
+      <span class="small">Mira también la pestaña <b>Console</b>.</span>
+    </div>
+  </aside>
+</div>
+
+<footer>UTP · Ingeniería de Sistemas · JavaScript Avanzado</footer>
+<script>const $log=document.getElementById('log');function log(m,c=''){const d=document.createElement('div');d.className='item '+c;d.textContent='['+new Date().toLocaleTimeString()+'] '+m;$log.appendChild(d);$log.scrollTop=$log.scrollHeight;console.log(m);}document.getElementById('btnClear').addEventListener('click',()=>{$log.innerHTML='';});</script>
+<script src="s3_extension.js"></script>
+</body></html>

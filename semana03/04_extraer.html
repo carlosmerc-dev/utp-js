@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>04. Extraer contenido</title>
+<link rel="stylesheet" href="ops.css"/></head>
+<body>
+<header>
+  <h1>04. Extraer contenido</h1>
+  <p>charAt · slice (incluye negativos) · substring <span class="pill">Concepto → Explora → Actividades → Errores</span></p>
+  <p class="small"><a href="index.html">← Índice Semana 3</a></p>
+</header>
+
+<div class="container">
+  <section class="card">
+    <div class="grid">
+      <div class="block">
+        <h3>Concepto clave</h3>
+        <ul class="small">
+          <li><b>charAt(i)</b> devuelve el carácter en i.</li>
+          <li><b>slice(inicio,fin)</b> acepta negativos (desde el final).</li>
+          <li><b>substring(inicio,fin)</b> NO acepta negativos.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Explora (interactivo)</h3>
+        <div class="inline">
+          <input id="t" type="text" value="UTP Chiclayo" style="min-width:260px">
+          <input id="a" type="number" value="4" style="width:90px">
+          <input id="b" type="number" value="8" style="width:90px">
+          <button id="btnEx">Probar</button>
+        </div>
+        <p class="small" id="out"></p>
+      </div>
+
+      <div class="block">
+        <h3>Actividades guiadas</h3>
+        <ol>
+          <li>Obtén iniciales de nombre y apellido.</li>
+          <li>Extrae el dominio de un email.</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <h3>Errores comunes y tips</h3>
+        <ul class="small"><li><code>substring</code> ignora negativos; <code>slice</code> no.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <aside class="card">
+    <h2>Logs</h2>
+    <div id="log" class="log"></div>
+    <div class="inline" style="margin-top:10px">
+      <button id="btnClear">Limpiar</button>
+      <span class="small">Mira también la pestaña <b>Console</b>.</span>
+    </div>
+  </aside>
+</div>
+
+<footer>UTP · Ingeniería de Sistemas · JavaScript Avanzado</footer>
+<script>const $log=document.getElementById('log');function log(m,c=''){const d=document.createElement('div');d.className='item '+c;d.textContent='['+new Date().toLocaleTimeString()+'] '+m;$log.appendChild(d);$log.scrollTop=$log.scrollHeight;console.log(m);}document.getElementById('btnClear').addEventListener('click',()=>{$log.innerHTML='';});</script>
+<script src="s4_extraer.js"></script>
+</body></html>

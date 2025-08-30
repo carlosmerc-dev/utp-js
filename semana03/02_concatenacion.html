@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>02. Concatenación</title>
+<link rel="stylesheet" href="ops.css"/></head>
+<body>
+<header>
+  <h1>02. Métodos de concatenación</h1>
+  <p>+, += y template literals. <span class="pill">Concepto → Explora → Actividades → Errores</span></p>
+  <p class="small"><a href="index.html">← Índice Semana 3</a></p>
+</header>
+
+<div class="container">
+  <section class="card">
+    <div class="grid">
+      <div class="block">
+        <h3>Concepto clave</h3>
+        <ul class="small">
+          <li><b>+</b> une 2 textos puntualmente.</li>
+          <li><b>+=</b> agrega al final de una variable.</li>
+          <li><b>Template literals</b> <code>`Hola ${'{'}n{'}'}`</code> → más legible.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Explora (interactivo)</h3>
+        <div class="inline">
+          <input id="nombre" type="text" value="Ana">
+          <input id="apellido" type="text" value="García">
+          <button id="btnConcat">Concatenar</button>
+        </div>
+        <p class="small" id="out"></p>
+      </div>
+
+      <div class="block">
+        <h3>Actividades guiadas</h3>
+        <ol>
+          <li>Construye “Apellidos, Nombre”.</li>
+          <li>Genera un correo: <code>${'{'}inicial{'}'}.${'{'}apellido{'}'}@utp.edu.pe</code>.</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <h3>Errores comunes y tips</h3>
+        <ul class="small">
+          <li>No olvides el espacio cuando uses <b>+</b>.</li>
+          <li>Si unes números y texto, convierte a <code>String(n)</code>.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <aside class="card">
+    <h2>Logs</h2>
+    <div id="log" class="log"></div>
+    <div class="inline" style="margin-top:10px">
+      <button id="btnClear">Limpiar</button>
+      <span class="small">Mira también la pestaña <b>Console</b>.</span>
+    </div>
+  </aside>
+</div>
+
+<footer>UTP · Ingeniería de Sistemas · JavaScript Avanzado</footer>
+<script>const $log=document.getElementById('log');function log(m,c=''){const d=document.createElement('div');d.className='item '+c;d.textContent='['+new Date().toLocaleTimeString()+'] '+m;$log.appendChild(d);$log.scrollTop=$log.scrollHeight;console.log(m);}document.getElementById('btnClear').addEventListener('click',()=>{$log.innerHTML='';});</script>
+<script src="s2_concatenacion.js"></script>
+</body></html>

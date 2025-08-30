@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>07. Expresiones Regulares (Regex)</title>
+  <link rel="stylesheet" href="ops.css"/>
+</head>
+<body>
+<header>
+  <h1>07. Expresiones Regulares (Regex)</h1>
+  <p>Validación, búsqueda y transformación de texto
+    <span class="pill">Concepto → Explora → Actividades → Errores</span>
+  </p>
+  <p class="small"><a href="index.html">← Índice Semana 3</a></p>
+</header>
+
+<div class="container">
+  <section class="card">
+    <div class="grid">
+
+      <!-- Concepto -->
+      <div class="block">
+        <h3>Concepto clave</h3>
+        <div class="table">
+          <div>
+            <b>¿Qué es?</b>
+            <p class="small">Un <b>patrón</b> para buscar, validar o transformar texto.
+              Se crea con <code>/patron/flags</code> o <code>new RegExp("patron","flags")</code>.
+            </p>
+          </div>
+          <div>
+            <b>Modificadores (flags)</b>
+            <p class="small"><code>i</code>=ignore case, <code>g</code>=global, <code>m</code>=multilínea</p>
+          </div>
+          <div>
+            <b>Clases y anclajes</b>
+            <p class="small"><code>\d</code> dígito, <code>\s</code> espacio, <code>.</code> cualquiera,
+              <code>^</code> inicio, <code>$</code> fin.</p>
+          </div>
+          <div>
+            <b>Cuantificadores</b>
+            <p class="small"><code>*</code> (0+), <code>+</code> (1+), <code>?</code> (0|1),
+              <code>{n}</code>, <code>{n,}</code>, <code>{n,m}</code>.</p>
+          </div>
+          <div>
+            <b>Grupos</b>
+            <p class="small"><code>(x|y)</code> alterna; <code>(?<g>…)</code> grupo con nombre.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Explora -->
+      <div class="block">
+        <h3>Explora (interactivo)</h3>
+
+        <label class="small" for="texto">Texto</label>
+        <textarea id="texto" rows="7">UTP Chiclayo 2025
+Hola mundo
+abc abbc abbbbbc
+https://user:secret@sub.dominio.com:8443/ruta?q=10#fin
+2024-12-31T23:59:59Z
+soporte@utp.edu.pe</textarea>
+
+        <div class="inline" style="margin-top:10px">
+          <div style="flex:1 1 280px">
+            <label class="small" for="patron">Patrón</label>
+            <input id="patron" value="ab*c"/>
+          </div>
+          <div style="width:130px">
+            <label class="small" for="flags">Flags</label>
+            <input id="flags" value="gi"/>
+          </div>
+          <button id="btnProbar" title="Muestra test + exec">Probar</button>
+        </div>
+
+        <div class="inline" style="margin-top:8px;flex-wrap:wrap">
+          <button data-action="test">regex.test(texto)</button>
+          <button data-action="exec">regex.exec(texto)</button>
+          <button data-action="match">texto.match(regex)</button>
+          <button data-action="replace">texto.replace(regex,"⟪X⟫")</button>
+          <button data-action="search">texto.search(regex)</button>
+          <button data-action="split">texto.split(regex)</button>
+        </div>
+
+        <p class="small" style="margin-top:8px"><b>Snippets</b></p>
+        <div class="inline" style="flex-wrap:wrap">
+          <!-- OJO: ahora sin barras dobles y sin separador | -->
+          <button class="bin" data-src="ab*c" data-flags="gi">/ab*c/gi</button>
+          <button class="bin" data-src="\d+" data-flags="g">/\d+/g</button>
+          <button class="bin" data-src="[aeiou]" data-flags="gi">/[aeiou]/gi</button>
+          <button class="bin" data-src="(lunes|martes)" data-flags="i">/(lunes|martes)/i</button>
+          <button class="bin" data-src="^\d{9}$" data-flags="">^\d{9}$</button>
+          <button class="bin" data-src="^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$" data-flags="i">email simple</button>
+        </div>
+
+        <p class="small" style="margin-top:8px"><b>Patrones PRO (producción)</b></p>
+        <div class="inline" style="flex-wrap:wrap">
+          <button class="bin" data-pro="url">URL con grupos</button>
+          <button class="bin" data-pro="iso">Fecha/Hora ISO-8601</button>
+          <button class="bin" data-pro="pwd">Password fuerte</button>
+        </div>
+
+        <pre id="proOut" class="log" style="height:auto;max-height:240px;margin-top:10px"></pre>
+      </div>
+
+      <!-- Actividades -->
+      <div class="block">
+        <h3>Actividades guiadas</h3>
+        <ol class="small">
+          <li>Con <code>/ab*c/</code> demuestra por qué <code>ac</code>, <code>abc</code> y <code>abbc</code> coinciden. Cambia a <code>/a*bc/</code> y valida por qué <code>ac</code> NO coincide.</li>
+          <li>Extrae todos los números con <code>/\d+/g</code> y compáralos con <code>/[0-9]/g</code>.</li>
+          <li>Valida correos con <code>^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$</code> y crea contraejemplos.</li>
+          <li>Usa el patrón PRO <b>URL</b> y revisa <code>result.groups</code> (scheme, host, port, path, query, fragment).</li>
+        </ol>
+      </div>
+
+      <!-- Errores -->
+      <div class="block">
+        <h3>Errores comunes y tips</h3>
+        <ul class="small">
+          <li><code>.</code> es “cualquier carácter”; para punto literal: <code>\.</code>.</li>
+          <li>Si validas toda la cadena, agrega <code>^…$</code>.</li>
+          <li>¿Esperas todas las coincidencias con <code>match</code>? añade <code>g</code>.</li>
+          <li>Con <code>new RegExp()</code> recuerda **doble escape** en el código fuente JS (no en el input de esta página).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <aside class="card">
+    <h2>Logs</h2>
+    <div id="log" class="log"></div>
+    <div class="inline" style="margin-top:10px">
+      <button id="btnClear">Limpiar</button>
+      <span class="small">Mira también la pestaña <b>Console</b>.</span>
+    </div>
+  </aside>
+</div>
+
+<footer>UTP · Ingeniería de Sistemas · JavaScript Avanzado</footer>
+
+<!-- Helper de logs (misma idea que en 06_interpolacion.html) -->
+<script>
+  const $log = document.getElementById('log');
+  function log(m,c=''){const d=document.createElement('div');
+    d.className='item '+c; d.textContent='['+new Date().toLocaleTimeString()+'] '+m;
+    $log.appendChild(d); $log.scrollTop=$log.scrollHeight; console.log(m);
+  }
+  document.getElementById('btnClear').addEventListener('click',()=>{$log.innerHTML='';});
+</script>
+
+<script src="s7_regex.js"></script>
+</body>
+</html>

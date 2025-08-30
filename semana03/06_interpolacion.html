@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>06. Interpolación (Template literals)</title>
+<link rel="stylesheet" href="ops.css"/></head>
+<body>
+<header>
+  <h1>06. Interpolación (Template literals)</h1>
+  <p>Expresiones y multilínea <span class="pill">Concepto → Explora → Actividades → Errores</span></p>
+  <p class="small"><a href="index.html">← Índice Semana 3</a></p>
+</header>
+
+<div class="container">
+  <section class="card">
+    <div class="grid">
+      <div class="block">
+        <h3>Concepto clave</h3>
+        <ul class="small">
+          <li>Usa <b>`backticks`</b> para interpolar: <code>${'{'}expr{'}'}</code>.</li>
+          <li>Permite texto multilínea sin concatenar.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Explora (interactivo)</h3>
+        <div class="inline">
+          <input id="nombre" type="text" value="Lucía">
+          <input id="curso" type="text" value="JavaScript">
+          <input id="n1" type="number" value="15" style="width:90px">
+          <input id="n2" type="number" value="18" style="width:90px">
+          <button id="btnTpl">Generar</button>
+        </div>
+        <p class="small" id="out"></p>
+      </div>
+
+      <div class="block">
+        <h3>Actividades guiadas</h3>
+        <ol>
+          <li>Arma un saludo formal de 2 líneas.</li>
+          <li>Incluye el promedio de dos notas con 2 decimales.</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <h3>Errores comunes y tips</h3>
+        <ul class="small"><li>Si usas comillas ' o " no habrá interpolación.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <aside class="card">
+    <h2>Logs</h2>
+    <div id="log" class="log"></div>
+    <div class="inline" style="margin-top:10px">
+      <button id="btnClear">Limpiar</button>
+      <span class="small">Mira también la pestaña <b>Console</b>.</span>
+    </div>
+  </aside>
+</div>
+
+<footer>UTP · Ingeniería de Sistemas · JavaScript Avanzado</footer>
+<script>const $log=document.getElementById('log');function log(m,c=''){const d=document.createElement('div');d.className='item '+c;d.textContent='['+new Date().toLocaleTimeString()+'] '+m;$log.appendChild(d);$log.scrollTop=$log.scrollHeight;console.log(m);}document.getElementById('btnClear').addEventListener('click',()=>{$log.innerHTML='';});</script>
+<script src="s6_interpolacion.js"></script>
+</body></html>

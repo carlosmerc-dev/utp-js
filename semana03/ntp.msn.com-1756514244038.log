@@ -1,0 +1,167 @@
+let regex = /ab*c/;
+
+console.log(regex.test("ac"));      // true (ninguna b)
+console.log(regex.test("abc"));     // true (una b)
+console.log(regex.test("abbc"));    // true (dos b)
+console.log(regex.test("abbbbbc"));
+VM1686:3 true
+VM1686:4 true
+VM1686:5 true
+VM1686:6 true
+undefined
+let regex = /ab+c/;
+
+console.log(regex.test("ac"));      // false (cero b)
+console.log(regex.test("abc"));     // true (una b)
+console.log(regex.test("abbc"));    // true (dos b)
+console.log(regex.test("abbbbbc")); // true (muchas b)
+
+VM1689:3 false
+VM1689:4 true
+VM1689:5 true
+VM1689:6 true
+undefined
+let regex = /ab?c/;
+
+console.log(regex.test("ac"));   // true (cero b)
+console.log(regex.test("abc"));  // true (una b)
+console.log(regex.test("abbc")); // false (dos b ya no permite)
+
+VM1692:3 true
+VM1692:4 true
+VM1692:5 false
+undefined
+let regex = /a{3}/;
+
+console.log(regex.test("aa"));    // false (solo 2)
+console.log(regex.test("aaa"));   // true (exactamente 3)
+console.log(regex.test("aaaa"));  // true (hay un grupo de 3 dentro)
+
+VM1696:3 false
+VM1696:4 true
+VM1696:5 true
+undefined
+let regex = /a{2,}/;
+
+console.log(regex.test("a"));     // false (menos de 2)
+console.log(regex.test("aa"));    // true (2)
+console.log(regex.test("aaaa"));  // true (4, que es más de 2)
+
+VM1700:3 false
+VM1700:4 true
+VM1700:5 true
+undefined
+let regex = /a{2,4}/;
+
+console.log(regex.test("a"));      // false (menos de 2)
+console.log(regex.test("aa"));     // true (2)
+console.log(regex.test("aaa"));    // true (3)
+console.log(regex.test("aaaa"));   // true (4)
+console.log(regex.test("aaaaa"));  // true, pero solo toma 4 como coincidencia
+
+VM1705:3 false
+VM1705:4 true
+VM1705:5 true
+VM1705:6 true
+VM1705:7 true
+undefined
+let regex = /a.c/;
+
+console.log(regex.test("abc"));  // true (el punto es "b")
+console.log(regex.test("a-c"));  // true (el punto es "-")
+console.log(regex.test("ac"));   // false (falta un carácter en el medio)
+
+VM1710:3 true
+VM1710:4 true
+VM1710:5 false
+undefined
+let texto = "UTP utp UtP";
+console.log(texto.match(/utp/));    // ["utp"]
+console.log(texto.match(/utp/i));   // ["UTP"]
+console.log(texto.match(/utp/gi));  // ["UTP","utp","UtP"]
+
+VM1713:2 ['utp', index: 4, input: 'UTP utp UtP', groups: undefined]0: "utp"groups: undefinedindex: 4input: "UTP utp UtP"length: 1[[Prototype]]: Array(0)
+VM1713:3 ['UTP', index: 0, input: 'UTP utp UtP', groups: undefined]
+VM1713:4 (3) ['UTP', 'utp', 'UtP']0: "UTP"1: "utp"2: "UtP"length: 3[[Prototype]]: Array(0)
+undefined
+console.log(/[aeiou]/.test("Hola")); // true (encuentra una vocal)
+console.log(/[xyz]/.test("Hola"));   // false
+
+VM1720:1 true
+VM1720:2 false
+undefined
+console.log(/[0-9]/.test("Clave123")); // true
+console.log(/\d/.test("Clave123"));    // true 
+VM1725:1 true
+VM1725:2 true
+undefined
+console.log(/(lunes|martes)/.test("Hoy es martes")); // true
+console.log(/(lunes|martes)/.test("Hoy es viernes")); // false
+
+VM1730:1 true
+VM1730:2 false
+undefined
+console.log(/\s/.test("Hola mundo")); // true (hay un espacio)
+console.log(/\s/.test("Holamundo"));  // false
+
+VM1733:1 true
+VM1733:2 false
+undefined
+let regex = /^\d{9}$/;
+
+console.log(regex.test("987654321"));  // true
+console.log(regex.test("98765"));      // false
+console.log(regex.test("9876543210")); // false
+
+VM1736:3 true
+VM1736:4 false
+VM1736:5 false
+undefined
+let regex = /^[\w.-]+@[\w.-]+\.\w{2,}$/;
+
+console.log(regex.test("ana.utp@correo.com")); // true
+console.log(regex.test("ana@correo"));         // false
+
+VM1740:3 true
+VM1740:4 false
+undefined
+let regex = /utp/i;
+console.log(regex.test("Soy de UTP"));   // true
+console.log(regex.test("Soy de UPC"));   // false
+
+VM1743:2 true
+VM1743:3 false
+undefined
+let regex = /\d+/;
+let resultado = regex.exec("El código es 12345");
+console.log(resultado[0]); // "12345"
+console.log(resultado.index); // 12 (posición)
+
+VM1746:3 12345
+VM1746:4 13
+undefined
+resultado
+['12345', index: 13, input: 'El código es 12345', groups: undefined]0: "12345"groups: undefinedindex: 13input: "El código es 12345"length: 1[[Prototype]]: Array(0)
+let texto = "UTP en Lima y UTP en Chiclayo";
+console.log(texto.match(/UTP/g)); 
+// ["UTP", "UTP"]
+
+VM1773:2 (2) ['UTP', 'UTP']
+undefined
+let texto = "UTP en Lima y UTP en Chiclayo, esto es UTP";
+console.log(texto.match(/UTP/g)); 
+// ["UTP", "UTP"]
+
+VM1784:2 (3) ['UTP', 'UTP', 'UTP']
+undefined
+let texto = "Bienvenido a la UTP";
+console.log(texto.search(/UTP/)); // 15 (posición donde inicia "UTP")
+
+VM1787:2 16
+undefined
+let texto = "uno,dos,tres,cuatro";
+console.log(texto.split(/,/));
+// ["uno", "dos", "tres", "cuatro"]
+
+VM1792:2 (4) ['uno', 'dos', 'tres', 'cuatro']
+undefined

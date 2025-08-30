@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>05. Búsqueda</title>
+<link rel="stylesheet" href="ops.css"/></head>
+<body>
+<header>
+  <h1>05. Búsqueda en cadenas</h1>
+  <p>indexOf · lastIndexOf · includes <span class="pill">Concepto → Explora → Actividades → Errores</span></p>
+  <p class="small"><a href="index.html">← Índice Semana 3</a></p>
+</header>
+
+<div class="container">
+  <section class="card">
+    <div class="grid">
+      <div class="block">
+        <h3>Concepto clave</h3>
+        <ul class="small">
+          <li><b>indexOf</b> primera aparición (o -1).</li>
+          <li><b>lastIndexOf</b> última aparición.</li>
+          <li><b>includes</b> devuelve true/false (sensible a mayúsculas).</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Explora (interactivo)</h3>
+        <div class="inline">
+          <input id="txt" type="text" value="UTP Chiclayo Perú · UTP" style="min-width:360px">
+          <input id="q" type="text" value="UTP">
+          <button id="btnFind">Buscar</button>
+        </div>
+        <p class="small" id="out"></p>
+      </div>
+
+      <div class="block">
+        <h3>Actividades guiadas</h3>
+        <ol>
+          <li>Cuenta cuántas veces aparece “UTP”.</li>
+          <li>Valida si la cadena contiene “Perú”.</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <h3>Errores comunes y tips</h3>
+        <ul class="small"><li><code>includes</code> es sensible a mayúsculas/minúsculas.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <aside class="card">
+    <h2>Logs</h2>
+    <div id="log" class="log"></div>
+    <div class="inline" style="margin-top:10px">
+      <button id="btnClear">Limpiar</button>
+      <span class="small">Mira también la pestaña <b>Console</b>.</span>
+    </div>
+  </aside>
+</div>
+
+<footer>UTP · Ingeniería de Sistemas · JavaScript Avanzado</footer>
+<script>const $log=document.getElementById('log');function log(m,c=''){const d=document.createElement('div');d.className='item '+c;d.textContent='['+new Date().toLocaleTimeString()+'] '+m;$log.appendChild(d);$log.scrollTop=$log.scrollHeight;console.log(m);}document.getElementById('btnClear').addEventListener('click',()=>{$log.innerHTML='';});</script>
+<script src="s5_busqueda.js"></script>
+</body></html>
